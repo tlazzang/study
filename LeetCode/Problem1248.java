@@ -21,7 +21,7 @@ public class Problem1248 {
 	
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stu
+		// TODO Auto-generated method stub
 		int[] nums = {1,2,2,1,1};
 		int k = 2;
 		numberOfSubarrays(nums, k);
