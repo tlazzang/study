@@ -1,10 +1,20 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class Problem406 {
 	
     public int[][] reconstructQueue(int[][] people) {
+
+//
+//		List<int[]> res = new ArrayList<>();
+//		for (int[] p : people) {
+//			res.add(p[1], p);
+//		}
+//
+//		return res.toArray(new int[people.length][2]);
+    	
         int[][] answer = new int[people.length][2];
         boolean[] isConstructed = new boolean[people.length];
         ArrayList<int[]> list = new ArrayList<>();
@@ -24,11 +34,29 @@ public class Problem406 {
         });
         
         for(int i = 0; i < people.length; i++) {
-        	int[] pair = new int[2];
-        	pair[0] = people[i][0];
-        	pair[1] = people[i][1];
+        	System.out.println(people[i][0] + ", " + people[i][1]);
+        }
+        
+    	Arrays.sort(people, new Comparator<int[]>(){
+			public int compare(int[] a, int[] b){
+				if (a[0] == b[0]) {
+					return a[1] - b[1];
+				}
+				return b[0] - a[0];
+			}
+		});
+    	
+    	System.out.println("===========");
+    	
+        for(int i = 0; i < people.length; i++) {
+        	System.out.println(people[i][0] + ", " + people[i][1]);
+        }
+        
+        for(int i = 0; i < people.length; i++) {
+        	int[] pair = people[i];
         	list.add(pair);
         }
+        
         while(answerList.size() < people.length) {
         	for(int i = 0; i < list.size(); i++) {
         		if(isConstructed[i]) continue;
@@ -45,12 +73,8 @@ public class Problem406 {
         		}
         	}
         }
-        for(int i = 0; i < answerList.size(); i++) {
-        	int[] pair = answerList.get(i);
-        	answer[i][0] = pair[0];
-        	answer[i][1] = pair[1];
-        }
-        return answer;
+
+        return answerList.toArray(new int[people.length][2]);
     }
 
 	public static void main(String[] args) {
