@@ -17,7 +17,7 @@ public class Problem890 {
                     map.put(key, value);
                 }
                 else{
-                    if(!map.get(key).equals(value){
+                    if(!map.get(key).equals(value)){
                         isMatched = false;
                         break;
                     }

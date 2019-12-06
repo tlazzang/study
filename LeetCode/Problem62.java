@@ -19,5 +19,4 @@ public class Problem62 {
 		// TODO Auto-generated method stub
 
 	}
-
 }
