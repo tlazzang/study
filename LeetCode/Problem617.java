@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Problem617 {
 	public static class TreeNode {
@@ -8,47 +10,77 @@ public class Problem617 {
 }
 	
     public TreeNode mergeTrees(TreeNode t1, TreeNode t2) {
-
-        TreeNode t3 = new TreeNode(t1.val + t2.val);
-        dfs(t1,t3);
-        dfs(t2,t3);
-        return t3;
-    }
-    public void dfs(TreeNode t1, TreeNode t3){
-        if(t1 == null && t3 == null) return;
-        if(t1 != null && t3 != null){
-            t3.val = t1.val + t3.val;
-        }
-        if(t1 == null || t3 == null){
-            if(t1 == null){
-                return;
+        Queue<TreeNode> t1_queue = new LinkedList<>();
+        Queue<TreeNode> t2_queue = new LinkedList<>();
+        Queue<TreeNode> t3_queue = new LinkedList<>();
+        if(t1 == null && t2 == null) return null;
+        TreeNode root = new TreeNode(0);
+        t1_queue.add(t1);
+        t2_queue.add(t2);
+        t3_queue.add(root);
+        
+        if(t1 != null){
+            root.val = root.val + t1.val;
+        while(!t1_queue.isEmpty()){
+            TreeNode now = t1_queue.poll();
+            TreeNode t3 = t3_queue.poll();
+            if(now.left != null){
+                if(t3.left == null){
+                    t3.left = new TreeNode(now.left.val);
+                }
+                else{
+                    t3.left.val = t3.left.val + now.left.val;
+                }
+                t1_queue.add(now.left);
+                t3_queue.add(t3.left);
             }
-            if(t3 == null){
-            	TreeNode newNode = new TreeNode(t1.val);
-            	t3.
-                t3 = new TreeNode(t1.val);
+            
+            if(now.right != null){
+                if(t3.right == null){
+                    t3.right = new TreeNode(now.right.val);
+                }
+                else{
+                    t3.right.val = t3.right.val + now.right.val;
+                }
+                t1_queue.add(now.right);
+                t3_queue.add(t3.right);
             }
+            
         }
-        dfs(t1.left, t3.left);
-        dfs(t1.right, t3.right);
+        }
+        
+        t3_queue.add(root);
+        
+        if(t2 != null){
+            root.val = root.val + t2.val;
+        while(!t2_queue.isEmpty()){
+            TreeNode now = t2_queue.poll();
+            TreeNode t3 = t3_queue.poll();
+            if(now.left != null){
+                if(t3.left == null){
+                    t3.left = new TreeNode(now.left.val);
+                }
+                else{
+                    t3.left.val = t3.left.val + now.left.val;
+                }
+                t2_queue.add(now.left);
+                t3_queue.add(t3.left);
+            }
+            
+            if(now.right != null){
+                if(t3.right == null){
+                    t3.right = new TreeNode(now.right.val);
+                }
+                else{
+                    t3.right.val = t3.right.val + now.right.val;
+                }
+                t2_queue.add(now.right);
+                t3_queue.add(t3.right);
+            }
+            
+        }
+        }
+        return root;
     }
-    
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Problem617 p = new Problem617();
-		
-		TreeNode t1 = new TreeNode(1);
-		t1.left = new TreeNode(3);
-		t1.right = new TreeNode(2);
-		t1.left.left = new TreeNode(5);
-		
-		TreeNode t2 = new TreeNode(2);
-		t2.left = new TreeNode(1);
-		t2.right = new TreeNode(3);
-		t2.left.right = new TreeNode(4);
-		t2.right.right = new TreeNode(7);
-		
-		TreeNode t3 = p.mergeTrees(t1,t2);
-	}
 
 }
