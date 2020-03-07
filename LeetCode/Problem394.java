@@ -59,7 +59,7 @@ public static String decodeString(String s) {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(decodeString("3[a2[c]]"));
+		System.out.println(decodeString("[ac]"));
 	}
 
 }
