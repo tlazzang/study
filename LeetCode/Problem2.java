@@ -50,6 +50,7 @@ public class Problem2 {
         	if(sb1.length() == idx || sb2.length() == idx) {
         		break;
         	}
+        	
         	int a = Integer.valueOf(sb1.charAt(idx)+"");
         	int b = Integer.valueOf(sb2.charAt(idx)+"");
         	int sum = a + b + overflow;
@@ -91,6 +92,10 @@ public class Problem2 {
         		sb.append(s.charAt(s.length() - 1)+"");
         		idx++;
         	}
+        }
+        
+        if(overflow == 1) {
+        	sb.append(1);
         }
         
         ListNode nowNode = head;
