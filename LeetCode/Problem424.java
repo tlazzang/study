@@ -5,7 +5,7 @@ public class Problem424 {
 	
     public static int characterReplacement(String s, int k) {
         int start = 0, end = 0, maxLength = 0, repeatFrequency = 0;
-        Map<Character, Integer> map = new HashMap();
+        Map<Character, Integer> map = new HashMap<>();
         
         for(end = 0; end < s.length(); end++)
         {
