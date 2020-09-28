@@ -19,6 +19,7 @@ public class Problem1052 {
         		sum += customers[i];
         	}
         }
+        answer = Math.max(answer, sum);
         
         int l = 0;
         for(int r = X; r < customers.length; r++) {
