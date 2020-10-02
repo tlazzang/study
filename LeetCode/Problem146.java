@@ -6,8 +6,6 @@ import java.util.PriorityQueue;
 public class Problem146 {
 	
 	public static LinkedHashMap<Integer, Integer> lmap;
-    public static HashMap<Integer, Task> map;
-    public static PriorityQueue<Task> pq; 
     public static int capa;
     public static int nowTime;
     
@@ -35,8 +33,6 @@ public class Problem146 {
 
     public static void LRUCache(int capacity) {
     	lmap = new LinkedHashMap<>();
-        map = new HashMap<>();
-        pq = new PriorityQueue<>();
         nowTime = 0;
         capa = capacity;
     }
