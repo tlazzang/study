@@ -34,7 +34,6 @@ public class Problem17 {
     	arr[7] = "pqrs";
     	arr[8] = "tuv";
     	arr[9] = "wxyz";
-    	
     }
 
 	public static void main(String[] args) {
