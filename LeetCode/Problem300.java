@@ -13,7 +13,7 @@ public class Problem300 {
                 }
             }
             dp[i] = max + 1;
-            result = Math.max(result, max);
+            result = Math.max(result, dp[i]);
         }
         return result;
     }
