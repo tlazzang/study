@@ -18,7 +18,7 @@ public class Main1655 {
 			min_pq.add(n);
 		}
 		
-		if(!min_pq.isEmpty() && max_pq.peek() < min_pq.peek()) {
+		if(!min_pq.isEmpty() && max_pq.peek() > min_pq.peek()) {
 			min_pq.add(max_pq.poll());
 			max_pq.add(min_pq.poll());
 		}
