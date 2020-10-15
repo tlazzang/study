@@ -34,9 +34,8 @@ public class Problem289 {
         
         for(int i = 0; i < next.length; i++) {
         	for(int j = 0; j < next[0].length; j++) {
-        		System.out.print(next[i][j]+" ");
+        		board[i][j] = next[i][j];
         	}
-        	System.out.println();
         }
     }
     
