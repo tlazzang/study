@@ -29,6 +29,7 @@ public class Problem206 {
     }
     
     public static ListNode reverse(ListNode now){
+    	if(now == null) return null;
         if(now.next == null){
             h = now;
 //            System.out.println(head.val);
