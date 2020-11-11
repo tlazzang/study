@@ -7,7 +7,6 @@ public class Main12865 {
 	public static int[][] dp;
 	public static int[][] stuff;
 	public static int N, K;
-	public static int answer = Integer.MIN_VALUE;
 	
 	public static void solution() {
 		dp = new int[stuff.length][K + 1];

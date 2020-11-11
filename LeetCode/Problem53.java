@@ -10,10 +10,10 @@ public class Problem53 {
     		maxUntilNow = Math.max(maxUntilNow + nums[i], nums[i]);
     		maxSum = Math.max(maxSum, maxUntilNow);
     	}
-        return maxSum;
+    	return maxSum;
     }
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
